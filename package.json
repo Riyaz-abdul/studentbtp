@@ -1,0 +1,49 @@
+{
+  "name": "campus",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/cds-hana": "^2",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
+    "@sap/ux-specification": "^1.120.2",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-studentapp": "cds watch --open studentapp/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy campus --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-marksa": "cds watch --open marksa/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-stuap": "cds watch --open stuap/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-project3": "cds watch --open project3/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/studentapp",
+    "app/marksa",
+    "app/project1",
+    "app/project1",
+    "app/project2",
+    "app/project1",
+    "app/project1",
+    "app/project1",
+    "app/stuap",
+    "app/project2",
+    "app/project3"
+  ],
+  "cds": {
+    "requires": {
+      "db": "hana"
+    }
+  }
+}

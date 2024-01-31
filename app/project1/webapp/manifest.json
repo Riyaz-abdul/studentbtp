@@ -1,0 +1,194 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:ovp",
+      "version": "1.12.2",
+      "toolsId": "158339b8-da1c-4ef9-ba2c-30084e11860f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/my/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.4",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {},
+        "sap.ovp": {},
+        "sap.ui.rta": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project1.i18n.i18n"
+        }
+      },
+      "mainModel": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [], 
+      "targets": {}
+    }
+  },
+  "sap.ovp": {
+    "globalFilterModel": "mainModel",
+    "globalFilterEntityType": "LiabilityBasedOnAmount_1",
+    "containerLayout": "resizable",
+    "enableLiveFilter": true,
+    "considerAnalyticalParameters": false,
+    "cards": {
+      "chart05": {
+        "template": "sap.ovp.cards.v4.charts.analytical",
+        "settings": {
+          "title": "Liability Based On Amount",
+          "entitySet": "LiabilityBasedOnAmount_1",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#LiabilityBasedOnAmount_1",
+          "defaultSpan": {
+            "cols": 2,
+            "rows": 2
+          }
+        }
+      },
+      "card04": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.v4.list",
+        "settings": {
+          "title": "List Card",
+          "sortBy": "id",
+          "sortOrder": "ascending",
+          "listFlavor": "standard",
+          "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#bar",
+          "category": "{{card04_category}}",
+          "entitySet": "LiabilityBasedOnAmount_1"
+        }
+      },
+      "card_20": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.v4.linklist",
+        "settings": {
+            "title": "{{card20_title}}",
+            "entitySet": "LiabilityBasedOnAmount_1",
+            "listFlavor": "carousel",
+            "sortBy": "id",
+            "sortOrder": "ascending",
+          "staticContent": [
+            {
+              "title": "Create Supplier",
+              "imageUri": "https://imgs.search.brave.com/_ayqiRbOPH2FKOk_hDYnpy1yez1oAwdkeqfz3li6GBA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNDgx/Mjc5MzIzL2RlL2Zv/dG8vY2hpdHRhZ29u/Zy1iYW5nbGFkZXNo/LWhhc2hpbS1hbWxh/LW9mLXNvdXRoLWFm/cmljYS1oaXRzLW91/dC1mb3Itc2l4LXJ1/bnMtZHVyaW5nLXRo/ZS1pY2Mtd29ybGQu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PXh6UjZJYVhDaDZ1/bDBaZ3V1NWJlOFY1/Z2phVVBOZGxiaHA4/Q2dmbm13SEk9",
+              "imageAltText": "Create Supplier",
+              "targetUri": "https://sap.com",
+              "openInNewWindow": true
+            },
+            {
+              "title": "Create Purchase Order",
+              "imageUri": "https://imgs.search.brave.com/QOWKHcEkCWaDtTYDqmnuLqqUqXKu3edpgDq4YNNyQvQ/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLmd1/aW0uY28udWsvaW1n/L21lZGlhL2Y5NmVl/MDFkYTkxODAwNWRh/MWZiMmM0NDNiZTE3/YTAwYzY2ZDBlNTkv/MF8wXzQxODZfMzA5/Mi9tYXN0ZXIvNDE4/Ni5qcGc_d2lkdGg9/NDQ1JmRwcj0xJnM9/bm9uZQ",
+              "imageAltText": "Create Purchase Order",
+              "targetUri": "https://sap.com",
+              "openInNewWindow": true
+            },
+            {
+              "title": "Manage Purchase Orders",
+              "imageUri": "https://imgs.search.brave.com/_sNr_lkdzpu-eASjFSB8Q656qviGOdeDSDtWbWkwvP0/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ0/MTc4OTYxMi9waG90/by93ZWxsaW5ndG9u/LW5ldy16ZWFsYW5k/LWhhcmRpay1wYW5k/eWEtb2YtaW5kaWEt/bG9va3Mtb24tZHVy/aW5nLWFuLWluZGlh/LXRyYWluaW5nLXNl/c3Npb24tYWhlYWQu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUZETGpiWVlLSmtu/M0RCdFY4V2lqSEZU/Tk4yQmtTX2psTEJK/d2NSM2p4SHc9",
+              "imageAltText": "Manage Purchase Orders",
+              "targetUri": "https://sap.com",
+              "openInNewWindow": true
+            },
+            {
+              "title": "Manage Purchase Requisitions",
+              "imageUri": "sap-icon://list",
+              "imageAltText": "Manage Purchase Requisitions",
+              "targetUri": "https://sap.com",
+              "openInNewWindow": true
+            },
+            {
+              "title": "Create Contract",
+              "imageUri": "sap-icon://credit-card",
+              "imageAltText": "Create Contract",
+              "targetUri": "https://sap.com",
+              "openInNewWindow": true
+            },
+            {
+              "title": "Create Purchase Requisition",
+              "imageUri": "sap-icon://create-form",
+              "imageAltText": "Create Purchase Requisition",
+              "targetUri": "https://sap.com",
+              "openInNewWindow": true
+            }
+          ]
+        }
+      }
+       
+      
+    
+    
+    
+  },
+
+    "globalFilterControlType": "MacroFilterBar"
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  }
+}
