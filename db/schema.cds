@@ -12,6 +12,7 @@ entity student {
 }
 
 entity marks {
+    //changes
     key sid     : Integer;
         total   : Integer;
         maths   : Integer;
